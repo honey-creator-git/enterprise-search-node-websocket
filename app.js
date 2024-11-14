@@ -16,10 +16,11 @@ wss.on("connection", (ws) => {
 
   // Listen for messages from the client to set role
   ws.on("message", (message) => {
+    const data = JSON.parse(message);
     // Mark this client as an admin
     adminClients.add(ws);
     // Broadcast to all connected admin clients if this is a normal message
-    broadcastToAdmins(message);
+    broadcastToAdmins(data);
   });
 
   ws.on("close", () => {
