@@ -24,7 +24,7 @@ wss.on("connection", (ws) => {
   });
 
   ws.on("close", () => {
-    // Remove from admin clients when disconnected
+    // Remove from admin clients when disconnected fdsfsd
     adminClients.delete(ws);
     console.log("WebSocket connection closed");
   });
